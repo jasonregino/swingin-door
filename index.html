@@ -15,159 +15,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Grenze+Gotisch:wght@500;600;700;800;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --paper: #efe4c9;          /* parchment */
-      --paper-2: #e6d7b3;
-      --paper-edge: #d8c69c;
-      --ink: #241a10;            /* dark brown-black ink */
-      --ink-soft: #5f4c33;
-      --night: #17100a;          /* near-black wood */
-      --night-2: #241811;
-      --slate: #232b24;          /* chalkboard */
-      --slate-edge: #11150f;
+      --paper: #efe4c9; --paper-2: #e6d7b3; --paper-edge: #d8c69c;
+      --ink: #241a10; --ink-soft: #5f4c33;
+      --night: #17100a; --night-2: #241811;
+      --slate: #232b24;
       --chalk: #ece6d4;
-      --brick: #a3341f;
-      --red: #93211a;
-      --red-deep: #6f160f;
-      --brass: #b1863a;
-      --gold: #cba44e;
-      --yellow: #e8b430;         /* hand-painted Est. 1955 */
+      --brick: #a3341f; --red: #93211a; --red-deep: #6f160f;
+      --brass: #b1863a; --gold: #cba44e; --yellow: #e8b430;
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
     }
-    /* paper grain overlay used across light sections */
-    :root { --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"); }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 66px; }
     body {
-      font-family: 'IM Fell English', Georgia, serif;
-      color: var(--ink);
+      font-family: 'IM Fell English', Georgia, serif; color: var(--ink);
       background: var(--paper);
       background-image: var(--grain), radial-gradient(120% 90% at 50% 0%, #f3ead2, var(--paper) 60%, var(--paper-2) 100%);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      font-size: 1.06rem;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 1.06rem;
     }
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.4rem; }
-    .black { font-family: 'Grenze Gotisch', 'IM Fell English', serif; }
-    .hand { font-family: 'Caveat', cursive; }
 
-    /* ============ NAV (their real nav, on dark wood) ============ */
-    header.navbar {
-      position: sticky; top: 0; z-index: 60;
-      background: linear-gradient(var(--night), #120b06);
-      border-bottom: 3px solid var(--brass);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
-    }
+    /* NAV */
+    header.navbar { position: sticky; top: 0; z-index: 60; background: linear-gradient(var(--night), #120b06); border-bottom: 3px solid var(--brass); box-shadow: 0 4px 18px rgba(0,0,0,0.45); }
     header.navbar nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.2rem 1rem; max-width: 1100px; margin: 0 auto; padding: 0.85rem 1rem; }
     header.navbar a { font-family: 'IM Fell English', serif; font-variant: small-caps; letter-spacing: 0.08em; font-size: 1.12rem; color: #e9dcc0; white-space: nowrap; transition: color 0.15s; }
     header.navbar a::before { content: "\2726"; margin-right: 0.65rem; color: var(--brass); font-size: 0.6rem; vertical-align: middle; }
     header.navbar a:first-child::before { display: none; }
     header.navbar a:hover { color: #fff; }
     header.navbar a.active { color: var(--yellow); }
-    @media (max-width: 560px) { header.navbar a { font-size: 0.98rem; } header.navbar nav { gap: 0.2rem 0.65rem; } }
+    @media (max-width: 620px) { header.navbar a { font-size: 0.96rem; } header.navbar nav { gap: 0.2rem 0.6rem; } }
 
-    /* ============ HERO — the pub at night ============ */
-    .hero {
-      position: relative; overflow: hidden; text-align: center; color: #f3ead2;
-      padding: 4.5rem 1.4rem 4rem;
-      background:
-        radial-gradient(60% 55% at 50% 12%, rgba(232,180,48,0.16), transparent 60%),
-        radial-gradient(90% 80% at 50% 120%, rgba(163,52,31,0.30), transparent 60%),
-        repeating-linear-gradient(90deg, #1c130b 0 14px, #1a110a 14px 28px),
-        linear-gradient(#20140c, #140c07);
-    }
+    /* HERO */
+    .hero { position: relative; overflow: hidden; text-align: center; color: #f3ead2; padding: 4.5rem 1.4rem 4rem;
+      background: radial-gradient(60% 55% at 50% 12%, rgba(232,180,48,0.16), transparent 60%), radial-gradient(90% 80% at 50% 120%, rgba(163,52,31,0.30), transparent 60%), repeating-linear-gradient(90deg, #1c130b 0 14px, #1a110a 14px 28px), linear-gradient(#20140c, #140c07); }
     .hero::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.5; pointer-events: none; }
     .hero-inner { position: relative; max-width: 40rem; margin: 0 auto; }
-    .hero .est {
-      display: inline-block; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.9rem;
-      color: var(--yellow); transform: rotate(-4deg); text-shadow: 0 1px 0 rgba(0,0,0,0.4); margin-bottom: 0.2rem;
-    }
-    .hero h1 {
-      font-family: 'Grenze Gotisch', serif; font-weight: 800; line-height: 0.95;
-      font-size: clamp(3rem, 11vw, 6rem); color: #fbf3df; letter-spacing: 0.01em;
-      text-shadow: 0 2px 0 #000, 3px 4px 0 rgba(0,0,0,0.5), 0 8px 30px rgba(0,0,0,0.6);
-    }
+    .hero .est { display: inline-block; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.9rem; color: var(--yellow); transform: rotate(-4deg); text-shadow: 0 1px 0 rgba(0,0,0,0.4); margin-bottom: 0.2rem; }
+    .hero h1 { font-family: 'Grenze Gotisch', serif; font-weight: 800; line-height: 0.95; font-size: clamp(3rem, 11vw, 6rem); color: #fbf3df; letter-spacing: 0.01em; text-shadow: 0 2px 0 #000, 3px 4px 0 rgba(0,0,0,0.5), 0 8px 30px rgba(0,0,0,0.6); }
     .hero .saucy { font-family: 'Caveat', cursive; font-weight: 700; font-size: clamp(1.7rem, 5.5vw, 2.7rem); color: #efd9a0; transform: rotate(-1.5deg); margin: 0.4rem 0 1.2rem; }
     .hero p.sub { font-size: 1.14rem; color: rgba(243,234,210,0.82); max-width: 34rem; margin: 0 auto 1.9rem; font-style: italic; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
-    /* brass plate button */
-    .brassbtn { font-family: 'IM Fell English', serif; font-variant: small-caps; letter-spacing: 0.08em; font-size: 1.15rem; padding: 0.7rem 1.6rem; color: #241606; background: linear-gradient(var(--gold), var(--brass)); border: 1px solid #7c5c22; border-radius: 3px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 3px 0 #6f5220; transition: transform 0.1s; }
+    .brassbtn { font-family: 'IM Fell English', serif; font-variant: small-caps; letter-spacing: 0.08em; font-size: 1.15rem; padding: 0.7rem 1.6rem; color: #241606; background: linear-gradient(var(--gold), var(--brass)); border: 1px solid #7c5c22; border-radius: 3px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 3px 0 #6f5220; transition: transform 0.1s; cursor: pointer; }
     .brassbtn:active { transform: translateY(2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 0 #6f5220; }
-    /* chalk tag button */
     .chalkbtn { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.4rem; padding: 0.45rem 1.4rem; color: #f3ead2; border: 1.5px solid rgba(243,234,210,0.55); border-radius: 3px; transition: background 0.15s; }
     .chalkbtn:hover { background: rgba(243,234,210,0.1); }
     .hero .tillate { margin-top: 1.8rem; font-variant: small-caps; letter-spacing: 0.14em; font-size: 1rem; color: var(--yellow); }
     .hero .tillate span { color: rgba(243,234,210,0.6); }
-
-    /* rope/brass divider */
     .rule { height: 4px; background: repeating-linear-gradient(90deg, var(--brass) 0 10px, #7c5c22 10px 14px); }
 
-    /* section base */
     section { position: relative; }
     .eyebrow { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.6rem; color: var(--red); }
-    .sec-title { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); line-height: 1; }
 
-    /* ============ WHAT'S ON — chalkboard ============ */
+    /* WHAT'S ON — chalkboard */
     .board-band { padding: 3.5rem 1.4rem; background: linear-gradient(var(--night-2), var(--night)); }
-    .board {
-      max-width: 940px; margin: 0 auto; border-radius: 6px; padding: 2.2rem 2rem 2.5rem;
-      background: radial-gradient(120% 100% at 50% 0%, #2b342c, var(--slate) 70%);
-      background-blend-mode: multiply;
-      border: 12px solid #4a331d;
-      box-shadow: 0 0 0 2px #2c1f11, inset 0 0 60px rgba(0,0,0,0.6), 0 20px 40px rgba(0,0,0,0.5);
-      color: var(--chalk); text-align: center; position: relative;
-    }
+    .board { max-width: 940px; margin: 0 auto; border-radius: 6px; padding: 2.2rem 2rem 2.5rem; background: radial-gradient(120% 100% at 50% 0%, #2b342c, var(--slate) 70%); border: 12px solid #4a331d; box-shadow: 0 0 0 2px #2c1f11, inset 0 0 60px rgba(0,0,0,0.6), 0 20px 40px rgba(0,0,0,0.5); color: var(--chalk); text-align: center; position: relative; }
     .board::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.6; border-radius: 4px; pointer-events: none; }
     .board .b-top { font-family: 'Caveat', cursive; font-weight: 700; font-size: 2.6rem; color: #fff; }
     .board .b-sub { font-variant: small-caps; letter-spacing: 0.16em; color: #b9c6ac; font-size: 0.95rem; margin-bottom: 1.6rem; }
-    .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; text-align: left; max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+    .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; text-align: left; max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
     .chalk-item { border-bottom: 1px dashed rgba(236,230,212,0.3); padding: 0.6rem 0; }
     .chalk-item .day { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.5rem; color: var(--yellow); line-height: 1; }
     .chalk-item .what { font-variant: small-caps; letter-spacing: 0.05em; font-size: 1.05rem; color: var(--chalk); }
     .chalk-item .when { font-size: 0.92rem; color: #aeb9a2; font-style: italic; }
     @media (max-width: 620px) { .board-grid { grid-template-columns: 1fr; } }
 
-    /* ============ THE MENU — printed menu on parchment ============ */
+    /* MENU */
     .menu-band { padding: 4rem 1.4rem; }
-    .menu-sheet {
-      position: relative; max-width: 980px; margin: 0 auto; padding: 3rem 2.6rem 2.6rem;
-      background:
-        linear-gradient(#f4ecd6, #ece0c0);
-      border: 1px solid var(--paper-edge);
-      box-shadow: 0 2px 0 #d3c095, 0 26px 50px -24px rgba(36,26,16,0.5);
-    }
+    .menu-sheet { position: relative; max-width: 980px; margin: 0 auto; padding: 3rem 2.6rem 2.6rem; background: linear-gradient(#f4ecd6, #ece0c0); border: 1px solid var(--paper-edge); box-shadow: 0 2px 0 #d3c095, 0 26px 50px -24px rgba(36,26,16,0.5); }
     .menu-sheet::before { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.7; pointer-events: none; }
-    /* faded union jack behind the menu */
     .uj { position: absolute; inset: 0; overflow: hidden; opacity: 0.07; pointer-events: none; display: flex; align-items: center; justify-content: center; }
     .uj svg { width: 115%; height: 115%; }
     .menu-head { text-align: center; position: relative; margin-bottom: 1.8rem; }
     .menu-head .saucy { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.8rem; color: var(--red); transform: rotate(-1.5deg); }
     .menu-head h2 { font-family: 'Grenze Gotisch', serif; font-weight: 800; font-size: clamp(2.6rem, 8vw, 4.2rem); color: var(--ink); line-height: 0.9; }
     .menu-head .addr { font-variant: small-caps; letter-spacing: 0.1em; color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.5rem; }
-    .menu-cols { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3.4rem; }
-    .mcat { break-inside: avoid; }
+    .menu-cols { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3.4rem; align-items: start; }
+    .mcol { display: flex; flex-direction: column; gap: 1.8rem; }
     .mcat .cat { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 1.8rem; color: var(--ink); text-align: center; }
     .mcat .cat-sub { text-align: center; font-style: italic; font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
-    .mrow { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.28rem 0; }
+    .mrow { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.26rem 0; }
     .mrow .nm { font-size: 1.05rem; }
     .mrow .dots { flex: 1; border-bottom: 1.5px dotted #b6a074; transform: translateY(-4px); margin: 0 0.35rem; }
-    .mrow .pr { font-weight: 400; color: var(--red-deep); white-space: nowrap; }
-    .mrow.warn .sm { display: block; font-size: 0.78rem; color: var(--red); font-style: italic; }
+    .mrow .pr { color: var(--red-deep); white-space: nowrap; }
+    .mrow .sm { display: block; font-size: 0.78rem; color: var(--ink-soft); font-style: italic; }
+    .mrow.warn .sm { color: var(--red); }
     .menu-foot { text-align: center; margin-top: 2rem; position: relative; }
     .menu-foot .feature { display: inline-block; font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 1.5rem; color: var(--ink); }
     .menu-foot .feature .pr { color: var(--red-deep); }
     .menu-foot .fine { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-top: 0.7rem; }
     @media (max-width: 720px) { .menu-cols { grid-template-columns: 1fr; } .menu-sheet { padding: 2.2rem 1.5rem; } }
 
-    /* ============ AWARD-WINNING — newspaper clipping ============ */
+    /* AWARD — newspaper clipping */
     .news-band { padding: 3.5rem 1.4rem 4rem; }
-    .clipping {
-      max-width: 900px; margin: 0 auto; background: #f0e9d5; background-image: var(--grain);
-      border: 1px solid #cbb98f; padding: 2.4rem 2.4rem 2.6rem;
-      box-shadow: 0 14px 30px -18px rgba(36,26,16,0.5); transform: rotate(-0.4deg);
-    }
+    .clipping { max-width: 900px; margin: 0 auto; background: #f0e9d5; background-image: var(--grain); border: 1px solid #cbb98f; padding: 2.4rem 2.4rem 2.6rem; box-shadow: 0 14px 30px -18px rgba(36,26,16,0.5); transform: rotate(-0.4deg); }
     .clipping .masthead { text-align: center; border-bottom: 3px double var(--ink); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
-    .clipping .masthead .paper-name { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.02em; }
+    .clipping .masthead .paper-name { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 1.4rem; }
     .clipping .masthead .dateline { font-variant: small-caps; letter-spacing: 0.16em; font-size: 0.72rem; color: var(--ink-soft); }
     .clipping h2 { font-family: 'Grenze Gotisch', serif; font-weight: 800; font-size: clamp(1.9rem, 5.5vw, 2.8rem); text-align: center; line-height: 1; margin-bottom: 0.3rem; }
     .clipping .deck { text-align: center; font-style: italic; color: var(--ink-soft); margin-bottom: 1.3rem; }
@@ -177,37 +119,70 @@
     .clipping .awards { text-align: center; margin-top: 1rem; font-variant: small-caps; letter-spacing: 0.06em; color: var(--red-deep); font-size: 0.95rem; }
     @media (max-width: 620px) { .clipping .cols { columns: 1; } }
 
-    /* ============ REVIEWS — coasters ============ */
+    /* REVIEWS — coasters */
     .rev-band { padding: 0 1.4rem 4rem; }
-    .rev-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
-    .coaster { background: #f2ead6; background-image: var(--grain); border: 2px solid var(--ink); border-radius: 10px; padding: 1.8rem 1.6rem; text-align: center; box-shadow: 4px 4px 0 rgba(36,26,16,0.15); }
+    .rev-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .coaster { background: #f2ead6; background-image: var(--grain); border: 2px solid var(--ink); border-radius: 10px; padding: 1.7rem 1.4rem; text-align: center; box-shadow: 4px 4px 0 rgba(36,26,16,0.15); }
     .coaster .stars { color: var(--brass); letter-spacing: 0.1em; }
-    .coaster .q { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.7rem; line-height: 1.2; color: var(--ink); margin: 0.4rem 0; }
+    .coaster .q { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.55rem; line-height: 1.2; color: var(--ink); margin: 0.4rem 0; }
     .coaster .who { font-variant: small-caps; letter-spacing: 0.08em; font-size: 0.82rem; color: var(--ink-soft); }
-    @media (max-width: 620px) { .rev-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 820px) { .rev-grid { grid-template-columns: 1fr; max-width: 460px; } }
 
-    /* ============ HISTORY — sepia strip ============ */
+    /* ABOUT — history (dark) */
     .history { padding: 4rem 1.4rem; text-align: center; background: linear-gradient(var(--night-2), var(--night)); color: #ecdcbb; }
     .history::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.5; pointer-events: none; }
-    .history .inner { position: relative; max-width: 44rem; margin: 0 auto; }
+    .history .inner { position: relative; max-width: 62rem; margin: 0 auto; }
     .history .eyebrow { color: var(--yellow); }
-    .history h2 { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3rem); color: #fbf3df; margin: 0.3rem 0 1.1rem; }
-    .history p { font-size: 1.12rem; color: rgba(236,220,187,0.85); font-style: italic; }
-    .history p b { color: var(--yellow); font-weight: 400; font-style: normal; }
+    .history h2 { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3rem); color: #fbf3df; margin: 0.3rem 0 0.8rem; }
+    .history .lead { font-size: 1.1rem; color: rgba(236,220,187,0.85); font-style: italic; max-width: 40rem; margin: 0 auto; }
+    .history .story { text-align: left; margin-top: 1.6rem; columns: 2; column-gap: 2.8rem; font-size: 1rem; color: rgba(236,220,187,0.86); }
+    .history .story p { margin-bottom: 0.9rem; break-inside: avoid; font-style: normal; }
+    .history .story b { color: var(--yellow); font-weight: 400; }
+    @media (max-width: 720px) { .history .story { columns: 1; } }
 
-    /* ============ VISIT ============ */
-    .visit { padding: 4rem 1.4rem; }
-    .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .visit h2 { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 1.9rem; margin-bottom: 1rem; }
-    .visit .rows { list-style: none; }
-    .visit .rows li { display: flex; justify-content: space-between; padding: 0.45rem 0; border-bottom: 1px dotted #b6a074; }
-    .visit .rows li span:last-child { color: var(--ink-soft); font-style: italic; }
-    .visit .addr { font-size: 1.15rem; margin-bottom: 1.2rem; }
-    .visit .acts { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-    .visit .parties { margin-top: 1.4rem; font-style: italic; color: var(--ink-soft); }
-    @media (max-width: 720px) { .visit .wrap { grid-template-columns: 1fr; gap: 2rem; } }
+    /* THE PUBLICAN — framed notice */
+    .publican { padding: 4rem 1.4rem; background: var(--paper-2); }
+    .notice { max-width: 780px; margin: 0 auto; position: relative; background: #f3ecd7; background-image: var(--grain); border: 2px solid var(--ink); padding: 2.6rem 2.4rem; box-shadow: 0 0 0 6px #f3ecd7, 0 0 0 8px var(--brass), 0 18px 36px -22px rgba(36,26,16,0.5); }
+    .notice .n-eyebrow { text-align: center; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.5rem; color: var(--red); }
+    .notice h2 { text-align: center; font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: clamp(2rem, 6vw, 2.9rem); line-height: 0.95; margin-bottom: 0.3rem; }
+    .notice .n-sub { text-align: center; font-variant: small-caps; letter-spacing: 0.14em; color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 1.4rem; }
+    .notice p { margin-bottom: 0.9rem; font-size: 1rem; }
+    .notice .sumup { font-style: italic; text-align: center; border-top: 1px solid var(--paper-edge); padding-top: 1rem; margin-top: 1.2rem; color: var(--red-deep); }
 
-    /* ============ FOOTER ============ */
+    /* PRIVATE PARTIES */
+    .parties { padding: 4rem 1.4rem; text-align: center; background: linear-gradient(var(--night), var(--night-2)); color: #ecdcbb; }
+    .parties::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.5; pointer-events: none; }
+    .parties .inner { position: relative; max-width: 42rem; margin: 0 auto; }
+    .parties .eyebrow { color: var(--yellow); }
+    .parties h2 { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3rem); color: #fbf3df; margin: 0.3rem 0 1rem; }
+    .parties p { font-size: 1.12rem; color: rgba(236,220,187,0.85); margin-bottom: 1.7rem; }
+
+    /* RESERVATIONS + GET IN TOUCH forms */
+    .form-band { padding: 4rem 1.4rem; }
+    .form-head { text-align: center; margin-bottom: 2rem; }
+    .form-head h2 { font-family: 'Grenze Gotisch', serif; font-weight: 800; font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); line-height: 0.95; }
+    .form-head .saucy { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.5rem; color: var(--red); }
+    .form-head p { color: var(--ink-soft); font-style: italic; max-width: 36rem; margin: 0.4rem auto 0; }
+    .sheet { max-width: 620px; margin: 0 auto; background: #f4ecd6; background-image: var(--grain); border: 1px solid var(--paper-edge); box-shadow: 0 2px 0 #d3c095, 0 20px 40px -26px rgba(36,26,16,0.5); padding: 2.2rem 2rem; }
+    .field { margin-bottom: 1rem; }
+    .field.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field label { display: block; font-variant: small-caps; letter-spacing: 0.08em; font-size: 0.86rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+    .field input, .field textarea, .field select { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--ink); background: #f9f3e2; color: var(--ink); font-family: 'IM Fell English', serif; font-size: 1rem; border-radius: 3px; }
+    .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23241a10' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.2rem; }
+    .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(147,33,26,0.12); }
+    .form-note { text-align: center; margin-top: 1rem; font-style: italic; color: var(--ink-soft); }
+    .resv-policy { max-width: 620px; margin: 0 auto 1.4rem; text-align: center; font-style: italic; font-size: 0.92rem; color: var(--ink-soft); border: 1px dashed var(--paper-edge); padding: 0.85rem 1.1rem; }
+    .form-note a { color: var(--red-deep); }
+    .ok-msg { display: none; text-align: center; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.6rem; color: var(--red-deep); padding: 1rem 0; }
+    @media (max-width: 520px) { .field.two { grid-template-columns: 1fr; } }
+
+    /* GET IN TOUCH info */
+    .contact-info { max-width: 620px; margin: 2rem auto 0; text-align: center; }
+    .contact-info .ci-row { font-variant: small-caps; letter-spacing: 0.05em; padding: 0.35rem 0; }
+    .contact-info .ci-row b { color: var(--ink-soft); font-weight: 400; }
+    .contact-info .owner { margin-top: 1rem; font-style: italic; color: var(--ink-soft); }
+
+    /* FOOTER */
     footer.site { background: linear-gradient(var(--night), #0f0a05); color: #e9dcc0; text-align: center; padding: 3rem 1.4rem 2.4rem; position: relative; }
     footer.site::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: 0.4; pointer-events: none; }
     footer .fb { font-family: 'Grenze Gotisch', serif; font-weight: 700; font-size: 2.2rem; color: #fbf3df; text-shadow: 0 2px 0 #000; position: relative; }
@@ -219,7 +194,6 @@
     footer .credit { margin-top: 1.2rem; font-size: 0.8rem; color: rgba(233,220,192,0.4); position: relative; }
     footer .credit a { color: rgba(233,220,192,0.7); }
 
-    /* reveal */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2,1,0.36,1); }
     .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
@@ -229,12 +203,12 @@
 
   <header class="navbar">
     <nav>
-      <a href="#top" data-spy="top">Home</a>
-      <a href="#history" data-spy="history">About</a>
+      <a href="#hero" data-spy="hero">Home</a>
+      <a href="#about" data-spy="about">About Us</a>
       <a href="#menu" data-spy="menu">Menu</a>
-      <a href="#whatson" data-spy="whatson">What's On</a>
-      <a href="#visit" data-spy="visit">Reservations</a>
-      <a href="#visit" data-spy="visit2">Get in Touch</a>
+      <a href="#parties" data-spy="parties">Private Parties</a>
+      <a href="#reservations" data-spy="reservations">Reservations</a>
+      <a href="#contact" data-spy="contact">Get in Touch</a>
     </nav>
   </header>
 
@@ -260,15 +234,15 @@
       <p class="b-top">What's On This Week</p>
       <p class="b-sub">Live &amp; loud, nearly every night</p>
       <div class="board-grid">
-        <div class="chalk-item"><div class="day">Karaoke</div><div class="what">Grab the mic</div><div class="when">Mon 9pm, plus Wed &ndash; Sat 9:30pm</div></div>
-        <div class="chalk-item"><div class="day">Comedy Show</div><div class="what">Start the week with a laugh</div><div class="when">Mondays, 7:30pm</div></div>
-        <div class="chalk-item"><div class="day">Dueling Pianos</div><div class="what">Two pianos, no cover, all requests</div><div class="when">Fri &amp; Sat, 9pm</div></div>
+        <div class="chalk-item"><div class="day">Karaoke</div><div class="what">Grab the mic</div><div class="when">Mon 9pm &ndash; 1:30am &middot; Wed&ndash;Sat 9:30pm &ndash; 1:30am</div></div>
+        <div class="chalk-item"><div class="day">Comedy Show</div><div class="what">Start the week with a laugh</div><div class="when">Mondays, 7:30 &ndash; 9pm</div></div>
+        <div class="chalk-item"><div class="day">Dueling Pianos</div><div class="what">Two pianos, no cover, all requests</div><div class="when">Fri &amp; Sat, 9pm &ndash; 1am</div></div>
         <div class="chalk-item"><div class="day">Trivia Night</div><div class="what">Round up your smartest mates</div><div class="when">Sundays, 7 &ndash; 9pm</div></div>
       </div>
     </div>
   </section>
 
-  <!-- THE MENU — printed menu -->
+  <!-- MENU -->
   <section class="menu-band" id="menu">
     <div class="menu-sheet reveal">
       <div class="uj" aria-hidden="true">
@@ -286,55 +260,82 @@
         <p class="addr">106 E 25th Avenue &middot; San Mateo &middot; (650) 522-9800</p>
       </div>
       <div class="menu-cols">
-        <div class="mcat">
-          <p class="cat">A La Carte</p>
-          <p class="cat-sub">Add 1.00 for Cajun style</p>
-          <div class="mrow"><span class="nm">Steak Fries</span><span class="dots"></span><span class="pr">10.99</span></div>
-          <div class="mrow"><span class="nm">Beer Battered Onion Rings</span><span class="dots"></span><span class="pr">11.30</span></div>
-          <div class="mrow"><span class="nm">Fried Clams</span><span class="dots"></span><span class="pr">13.99</span></div>
-          <div class="mrow"><span class="nm">Spicy Chicken Wings</span><span class="dots"></span><span class="pr">13.99</span></div>
-          <div class="mrow"><span class="nm">English Banger</span><span class="dots"></span><span class="pr">9.99</span></div>
-          <div class="mrow"><span class="nm">Beer Battered Fish Bites</span><span class="dots"></span><span class="pr">13.99</span></div>
-          <div class="mrow"><span class="nm">Fresh Calamari</span><span class="dots"></span><span class="pr">13.99</span></div>
-          <div class="mrow"><span class="nm">Mozzarella Sticks</span><span class="dots"></span><span class="pr">8.99</span></div>
-          <div class="mrow"><span class="nm">English Wally's</span><span class="dots"></span><span class="pr">7.99</span></div>
+        <div class="mcol">
+          <div class="mcat">
+            <p class="cat">A La Carte</p>
+            <p class="cat-sub">Add 1.00 for Cajun style</p>
+            <div class="mrow"><span class="nm">Steak Fries</span><span class="dots"></span><span class="pr">10.99</span></div>
+            <div class="mrow"><span class="nm">Beer Battered Onion Rings</span><span class="dots"></span><span class="pr">11.30</span></div>
+            <div class="mrow"><span class="nm">Fried Clams</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Spicy Chicken Wings</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">English Banger</span><span class="dots"></span><span class="pr">9.99</span></div>
+            <div class="mrow"><span class="nm">Stuffed Jalape&ntilde;o Popper</span><span class="dots"></span><span class="pr">1.90</span></div>
+            <div class="mrow"><span class="nm">Beer Battered Fish Bites</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Chicken Nuggets</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Corndog</span><span class="dots"></span><span class="pr">8.99</span></div>
+            <div class="mrow"><span class="nm">Hot Dog or Hot Link</span><span class="dots"></span><span class="pr">10.99</span></div>
+            <div class="mrow"><span class="nm">Nacho Chips</span><span class="dots"></span><span class="pr">10.99</span></div>
+            <div class="mrow"><span class="nm">Mozzarella Sticks</span><span class="dots"></span><span class="pr">8.99</span></div>
+            <div class="mrow"><span class="nm">Fresh Calamari</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">English Wally's</span><span class="dots"></span><span class="pr">7.99</span></div>
+          </div>
+          <div class="mcat">
+            <p class="cat">Delicious Chicken</p>
+            <p class="cat-sub">Served with steak fries or salad</p>
+            <div class="mrow"><span class="nm">Teriyaki Chicken Breast</span><span class="dots"></span><span class="pr">14.99</span></div>
+            <div class="mrow"><span class="nm">Jamaican Jerk Chicken Breast*</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Cordon Bleu Chicken</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Grilled Chicken Breast</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Cajun Chicken Breast</span><span class="dots"></span><span class="pr">14.99</span></div>
+            <div class="mrow"><span class="nm">Santa Fe Chicken</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Super Spicy Habanero Chicken*</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">California Chicken</span><span class="dots"></span><span class="pr">16.99</span></div>
+            <div class="mrow"><span class="nm">Pesto Chicken Breast</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Spicy Chipotle Chicken*</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Chicken Nuggets</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Spicy Chicken Wings</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Fresh Green Salad</span><span class="dots"></span><span class="pr">15.25</span></div>
+            <div class="mrow warn"><span class="nm">"World Famous" Habanero Chicken XXX*<span class="sm">Warning: extremely hot. Not a joke!</span></span><span class="dots"></span><span class="pr">17.99</span></div>
+          </div>
         </div>
-        <div class="mcat">
-          <p class="cat">From the Grill</p>
-          <p class="cat-sub">Served with steak fries or salad</p>
-          <div class="mrow"><span class="nm">Swingin' Door Juicy &frac12;lb Burger</span><span class="dots"></span><span class="pr">11.99</span></div>
-          <div class="mrow"><span class="nm">&frac12;lb Bacon Burger</span><span class="dots"></span><span class="pr">13.99</span></div>
-          <div class="mrow"><span class="nm">&frac12;lb California Burger</span><span class="dots"></span><span class="pr">14.99</span></div>
-          <div class="mrow"><span class="nm">Garden Burger</span><span class="dots"></span><span class="pr">11.99</span></div>
-          <div class="mrow warn"><span class="nm">"World Famous" Habanero XXX<span class="sm">Warning: extremely hot. Not a joke!</span></span><span class="dots"></span><span class="pr">15.99</span></div>
-          <div class="mrow"><span class="nm">Traditional Bangers &amp; Mash</span><span class="dots"></span><span class="pr">19.99</span></div>
-        </div>
-        <div class="mcat">
-          <p class="cat">Catch of the Day</p>
-          <p class="cat-sub">Add coleslaw 0.90</p>
-          <div class="mrow"><span class="nm">Fish &amp; Chips (3 piece)</span><span class="dots"></span><span class="pr">21.99</span></div>
-          <div class="mrow"><span class="nm">Fish &amp; Chips (2 piece)</span><span class="dots"></span><span class="pr">18.99</span></div>
-          <div class="mrow"><span class="nm">Calamari &amp; Chips</span><span class="dots"></span><span class="pr">16.99</span></div>
-          <div class="mrow"><span class="nm">Shrimp &amp; Chips</span><span class="dots"></span><span class="pr">18.99</span></div>
-          <div class="mrow"><span class="nm">Scallops &amp; Chips</span><span class="dots"></span><span class="pr">18.99</span></div>
-          <div class="mrow"><span class="nm">Seafood Combo</span><span class="dots"></span><span class="pr">22.99</span></div>
-          <div class="mrow"><span class="nm">Fish Taco</span><span class="dots"></span><span class="pr">14.99</span></div>
-        </div>
-        <div class="mcat">
-          <p class="cat">Delicious Chicken</p>
-          <p class="cat-sub">Served with steak fries or salad</p>
-          <div class="mrow"><span class="nm">Teriyaki Chicken Breast</span><span class="dots"></span><span class="pr">14.99</span></div>
-          <div class="mrow"><span class="nm">Cordon Bleu Chicken</span><span class="dots"></span><span class="pr">15.99</span></div>
-          <div class="mrow"><span class="nm">Cajun Chicken Breast</span><span class="dots"></span><span class="pr">14.99</span></div>
-          <div class="mrow"><span class="nm">Santa Fe Chicken</span><span class="dots"></span><span class="pr">15.99</span></div>
-          <div class="mrow"><span class="nm">California Chicken</span><span class="dots"></span><span class="pr">16.99</span></div>
-          <div class="mrow"><span class="nm">Pesto Chicken Breast</span><span class="dots"></span><span class="pr">15.99</span></div>
-          <div class="mrow warn"><span class="nm">"World Famous" Habanero XXX<span class="sm">Warning: extremely hot. Not a joke!</span></span><span class="dots"></span><span class="pr">17.99</span></div>
+        <div class="mcol">
+          <div class="mcat">
+            <p class="cat">From the Grill</p>
+            <p class="cat-sub">Served with steak fries or salad</p>
+            <div class="mrow"><span class="nm">Swingin' Door Juicy &frac12;lb Burger</span><span class="dots"></span><span class="pr">11.99</span></div>
+            <div class="mrow"><span class="nm">&frac12;lb Bacon Burger</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">&frac12;lb Mushroom Burger</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">&frac12;lb California Burger</span><span class="dots"></span><span class="pr">14.99</span></div>
+            <div class="mrow"><span class="nm">&frac12;lb Pesto Burger</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Jamaican Jerk Burger*</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Super Spicy Habanero Burger*</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow"><span class="nm">Garden Burger</span><span class="dots"></span><span class="pr">11.99</span></div>
+            <div class="mrow"><span class="nm">Swingin' Door Burger</span><span class="dots"></span><span class="pr">12.99</span></div>
+            <div class="mrow"><span class="nm">&frac12;lb Chipotle Burger*</span><span class="dots"></span><span class="pr">13.99</span></div>
+            <div class="mrow warn"><span class="nm">"World Famous" Habanero Burger XXX*<span class="sm">Warning: extremely hot. Not a joke!</span></span><span class="dots"></span><span class="pr">15.99</span></div>
+          </div>
+          <div class="mcat">
+            <p class="cat">Catch of the Day</p>
+            <p class="cat-sub">Add coleslaw 0.90</p>
+            <div class="mrow"><span class="nm">Fish &amp; Chips<span class="sm">3 piece</span></span><span class="dots"></span><span class="pr">21.99</span></div>
+            <div class="mrow"><span class="nm">Fish &amp; Chips<span class="sm">2 piece</span></span><span class="dots"></span><span class="pr">18.99</span></div>
+            <div class="mrow"><span class="nm">Calamari &amp; Chips</span><span class="dots"></span><span class="pr">16.99</span></div>
+            <div class="mrow"><span class="nm">Shrimp &amp; Chips</span><span class="dots"></span><span class="pr">18.99</span></div>
+            <div class="mrow"><span class="nm">Scallops &amp; Chips</span><span class="dots"></span><span class="pr">18.99</span></div>
+            <div class="mrow"><span class="nm">Oysters &amp; Chips</span><span class="dots"></span><span class="pr">18.99</span></div>
+            <div class="mrow"><span class="nm">Fried Clams &amp; Chips</span><span class="dots"></span><span class="pr">16.99</span></div>
+            <div class="mrow"><span class="nm">Oyster or Shrimp Po'Boy</span><span class="dots"></span><span class="pr">14.29</span></div>
+            <div class="mrow"><span class="nm">Seafood Combo<span class="sm">1 piece fish, 3 scallop, 2 shrimp, 1 bag of clam &amp; chips</span></span><span class="dots"></span><span class="pr">22.99</span></div>
+            <div class="mrow"><span class="nm">Dinner for Two Seafood Platter<span class="sm">2 piece fish, 6 scallop, 4 shrimp, 1 bag of clam, 2 oyster &amp; chips</span></span><span class="dots"></span><span class="pr">29.99</span></div>
+            <div class="mrow"><span class="nm">Fish or Tuna Sandwich &amp; Chips</span><span class="dots"></span><span class="pr">15.15</span></div>
+            <div class="mrow"><span class="nm">Beer Battered Fish Bites &amp; Chips</span><span class="dots"></span><span class="pr">15.99</span></div>
+            <div class="mrow"><span class="nm">Fish Taco</span><span class="dots"></span><span class="pr">14.99</span></div>
+          </div>
         </div>
       </div>
       <div class="menu-foot">
         <span class="feature">Try our Traditional English Bangers &amp; Mash &middot; <span class="pr">19.99</span></span>
-        <p class="fine">*House specialty sauce. 10% service charge on 5 or more take-out orders. Tax not included. Full menu in-house.</p>
+        <p class="fine">With English beans, gravy and salad. *House specialty sauce. 10% service charge on 5 or more take-out orders. Tax not included.</p>
       </div>
     </div>
   </section>
@@ -361,50 +362,123 @@
     <div class="rev-grid">
       <div class="coaster reveal">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="q">"Best bar in San Mateo!"</p>
-        <p class="who">F.V. &middot; Yelp Review</p>
+        <p class="q">"Fantastic piano bar experience! No cover, plenty of beers on tap, and very talented, friendly pianists."</p>
+        <p class="who">A.L. &middot; Yelp Review</p>
       </div>
       <div class="coaster reveal">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="q">"Fantastic piano bar. No cover, plenty on tap, and the pianists are the real deal."</p>
-        <p class="who">A.L. &middot; Yelp Review</p>
+        <p class="q">"Love this place. Friendly staff, lots of big TVs, cheap beer prices, and a great selection of beers on tap and in the bottle."</p>
+        <p class="who">C.R. &middot; Yelp Review</p>
+      </div>
+      <div class="coaster reveal">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="q">"Best bar in San Mateo!"</p>
+        <p class="who">F.V. &middot; Yelp Review</p>
       </div>
     </div>
   </section>
 
-  <!-- HISTORY -->
-  <section class="history" id="history">
+  <!-- ABOUT — History of the Door -->
+  <section class="history" id="about">
     <div class="inner reveal">
       <p class="eyebrow">A San Mateo landmark</p>
-      <h2>Pouring pints since 1955</h2>
-      <p>Over the years this bar has seen a bit of everything. <b>Bing Crosby</b> would quietly sip a beer at the end of the bar, <b>Ronald Reagan</b> once bought the room a round, and a young <b>Kingston Trio</b> played the upstairs dance floor in 1957. Today Warren Chapman keeps the British tradition going, right down to the fish and chips wrapped in newspaper.</p>
+      <h2>History of the Door</h2>
+      <p class="lead">The Swingin' Door has been a hangout for noteworthy folks in San Mateo since 1955. A bit of the story.</p>
+      <div class="story">
+        <p>Built in the 1940s, the Kehoe building was converted into a bar in December 1955 by the Fey Brothers, whose grandfather invented the slot machine. It was named The Swinging Door for the two swinging doors at the entrance. A 12oz mug of beer cost 20 cents.</p>
+        <p>Early 1956 saw pinup girl <b>Betty Grable</b> and bandleader <b>Harry James</b> frequent the bar while their horses ran at Bay Meadows. The upstairs dance floor went in that year to host a dance school for several years.</p>
+        <p>A young, struggling group called <b>The Kingston Trio</b> played upstairs in 1957. In 1958 someone lobbed a tear gas bomb into the bar room, and famous jockey <b>Willie Shoemaker</b> dropped in during the racing season. A seat belt was even bolted to a pillar for regulars who wanted to "buckle up" before driving.</p>
+        <p>Hugh Courtney hung the first bristle dartboard in 1963, and the first All-Star match between Bay Area and Los Angeles dart teams was played here in 1964. A go-go dancer did her thing that year while patrons talked about Carol Doda, The Beatles, and Vietnam.</p>
+        <p>Later in 1964, actor <b>Ronald Reagan</b> bought the bar a round while campaigning, and a longtime regular treated newly elected Congressman Pete McCloskey to a drink. In 1966, Len Titus planted the Bird of Paradise "tree" when it stood 18 inches tall. It is now the tallest in Northern California.</p>
+        <p>Through many owners and decades it always stayed a proper beer bar, with familiar faces on both sides of the taps and a dartboard that was never quiet. Around 1969 an irate person fired a gunshot through the front door into the end of the bar, thankfully closed at the time.</p>
+        <p>Shut for several months, the bar reopened in 1971 as The Prince of Wales, with the British decor it still wears today. From 1970 to 1973, crooner <b>Bing Crosby</b> would quietly sip a beer at the kitchen end of the bar, back when the Windsor Burger and the Fish &amp; Chips were first gaining local fame.</p>
+        <p>In November 2006, <b>Warren Chapman</b> bought the British pub and brought back the original name, The Swingin' Door. Born in Manchester, England, Warren comes from a deep line of British servicemen. His grandfather, William Chapman of the 70th Battery RFA, earned the Battle of Mons medal, his great uncle PTE John Chapman rode with the 11th Hussars, and his father Raymond Chapman was a Grenadier Guard. That is why two guardsmen stand watch outside the pub to this day.</p>
+      </div>
     </div>
   </section>
 
-  <!-- VISIT -->
-  <section class="visit" id="visit">
-    <div class="wrap">
-      <div class="reveal">
-        <h2>Hours</h2>
-        <ul class="rows">
-          <li><span>Monday &ndash; Sunday</span><span>11:30am &ndash; 2:00am</span></li>
-          <li><span>Kitchen</span><span>Lunch through late night</span></li>
-          <li><span>Karaoke</span><span>Mon, plus Wed &ndash; Sat</span></li>
-        </ul>
-        <p class="parties">Booking a birthday, a work do, or a proper send-off? Give us a ring and we'll sort the room.</p>
-      </div>
-      <div class="reveal">
-        <h2>Find Us</h2>
-        <p class="addr">106 E 25th Ave<br />San Mateo, CA 94403</p>
-        <div class="acts">
-          <a class="brassbtn" href="tel:+16505229800">Call (650) 522-9800</a>
-          <a class="chalkbtn" style="color:var(--ink);border-color:var(--ink);" href="https://www.google.com/maps/search/?api=1&query=The+Swingin+Door+106+E+25th+Ave+San+Mateo+CA" target="_blank" rel="noopener">Get Directions</a>
+  <!-- THE PUBLICAN — framed notice -->
+  <section class="publican">
+    <div class="notice reveal">
+      <p class="n-eyebrow">A word from the landlord</p>
+      <h2>Warren Chapman</h2>
+      <p class="n-sub">The Publican</p>
+      <p>A Publican is a Diplomat, a Democrat, an Autocrat, an Acrobat and Doormat. He must have the facility to entertain Prime Ministers, Princes of Industry, Pickpockets, Gamblers, Bookmakers, Pirates, Philanthropists, Popsies and Prudes. He must be on both sides of the "Political Fence" and be able to jump that fence.</p>
+      <p>He should be, or have been, a Footballer, Golfer, Bowler, Tennis Player, Cricketer, Dart Player, a Sailor, Pigeon Fancier, Motor Racer and a Linguist, as well as have a good knowledge of any other sport involving Dice, Cards, Horse Racing and Billiards. This is most useful, as he has to settle arguments and squabbles. He must be a qualified Boxer, Wrestler, Weight Lifter, Sprinter and Peacemaker.</p>
+      <p>He must always look immaculate when drinking with the Ladies and Gentlemen mentioned above, as well as bankers, Swankers, Theatricals, Commercial Travellers and Company Representatives, even though he has just made peace between two, four, six or more of the aforementioned Patrons.</p>
+      <p>To be successful, Warren must keep the Pub full, the House full, the Storeroom full, the Wine-cellar full, the Customers full, and not get full himself. He must have staff who are Clean, Honest, Quick workers, Quick thinkers, non-Drinkers, Mathematicians and Technicians, and at all times be on the Boss' side, the Customers' side, and stay on the Outside of the Bar.</p>
+      <p class="sumup">To sum up: Warren must be Outside, Inside, Offside, Glorified, Sanctified, Crucified, Stupefied, Cross-eyed, and if he's not the Strong Silent Type, there's always Suicide!!!</p>
+    </div>
+  </section>
+
+  <!-- PRIVATE PARTIES -->
+  <section class="parties" id="parties">
+    <div class="inner reveal">
+      <p class="eyebrow">Book the pub</p>
+      <h2>Private Parties &amp; Events</h2>
+      <p>Birthdays, work dos, team nights, engagement parties, or a proper send-off. We host private parties with the full bar, the kitchen firing till late, and the karaoke and pianos ready to go. Tell us the date and the headcount, and we'll sort the rest.</p>
+      <a class="brassbtn" href="#reservations">Plan Your Party</a>
+    </div>
+  </section>
+
+  <!-- RESERVATIONS -->
+  <section class="form-band" id="reservations">
+    <div class="form-head reveal">
+      <p class="saucy">Save your seat</p>
+      <h2>Reservations</h2>
+      <p>Booking a table or bringing a big group? Send us a note below or give the pub a ring, and we'll get right back to you.</p>
+    </div>
+    <p class="resv-policy reveal">All reservation requests are for a 10-person minimum. Requests are reviewed in the order they are received, and seating is arranged based on availability. Our weekend slots fill up quickly, so please inquire at least two weeks in advance for Thursday through Saturday reservations.</p>
+    <form class="sheet reveal" onsubmit="event.preventDefault(); this.querySelector('.form-body').style.display='none'; this.querySelector('.ok-msg').style.display='block';">
+      <div class="form-body">
+        <div class="field two">
+          <div><label>Name</label><input type="text" required /></div>
+          <div><label>Phone or Email</label><input type="text" required /></div>
         </div>
+        <div class="field two">
+          <div><label>Date</label><input type="text" placeholder="e.g. Fri, July 11" /></div>
+          <div><label>Party Size</label><input type="text" placeholder="10 minimum" /></div>
+        </div>
+        <div class="field"><label>Event Type</label><select required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Karaoke</option>
+          <option>Dueling Pianos (Private parties only)</option>
+          <option>Other (please provide details in Additional Info)</option>
+        </select></div>
+        <div class="field"><label>Additional Info</label><textarea rows="3"></textarea></div>
+        <div style="text-align:center;"><button class="brassbtn" type="submit">Request a Table</button></div>
       </div>
+      <div class="ok-msg">Cheers! We'll be in touch shortly to confirm your reservation.</div>
+    </form>
+    <p class="form-note">Prefer to call? <a href="tel:+16505229800">(650) 522-9800</a></p>
+  </section>
+
+  <!-- GET IN TOUCH -->
+  <section class="form-band" id="contact" style="background:var(--paper-2);">
+    <div class="form-head reveal">
+      <p class="saucy">Say hello</p>
+      <h2>Get in Touch</h2>
+      <p>We'll get back to you as soon as we've had the habanero sauce. We're here to help and answer any question you might have.</p>
+    </div>
+    <form class="sheet reveal" onsubmit="event.preventDefault(); this.querySelector('.form-body').style.display='none'; this.querySelector('.ok-msg').style.display='block';">
+      <div class="form-body">
+        <div class="field"><label>Your Name</label><input type="text" required /></div>
+        <div class="field"><label>Your Email</label><input type="email" required /></div>
+        <div class="field"><label>Your Message</label><textarea rows="4" required></textarea></div>
+        <div style="text-align:center;"><button class="brassbtn" type="submit">Send Message</button></div>
+      </div>
+      <div class="ok-msg">Thanks for reaching out. We'll get back to you soon!</div>
+    </form>
+    <div class="contact-info reveal">
+      <div class="ci-row"><b>Find Us</b> &nbsp; 106 E 25th Ave, San Mateo, CA 94403</div>
+      <div class="ci-row"><b>Call</b> &nbsp; <a href="tel:+16505229800" style="color:var(--red-deep);">(650) 522-9800</a></div>
+      <div class="ci-row"><b>Hours</b> &nbsp; Every day, 11:30am &ndash; 2:00am</div>
+      <p class="owner">Owner &amp; Proprietor &middot; Warren Chapman</p>
+      <div style="margin-top:1rem;"><a class="brassbtn" href="https://www.google.com/maps/search/?api=1&query=The+Swingin+Door+106+E+25th+Ave+San+Mateo+CA" target="_blank" rel="noopener">Get Directions</a></div>
     </div>
   </section>
 
-  <footer class="site" id="contact">
+  <footer class="site">
     <div class="fb">The Swingin' Door</div>
     <div class="est">Est. 1955</div>
     <p>106 E 25th Ave, San Mateo, CA 94403</p>
@@ -425,9 +499,7 @@
         var navH = nav ? nav.offsetHeight : 0;
         var pos = window.scrollY + navH + 40, idx = 0, best = -Infinity;
         links.forEach(function (l, i) {
-          var id = l.getAttribute('data-spy'); if (id === 'visit2') id = 'visit';
-          if (id === 'top') id = 'hero';
-          var s = document.getElementById(id);
+          var s = document.getElementById(l.getAttribute('data-spy'));
           if (s && s.offsetTop <= pos && s.offsetTop > best) { best = s.offsetTop; idx = i; }
         });
         if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4) idx = links.length - 1;
@@ -440,7 +512,7 @@
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (es) {
           es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-        }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+        }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
         reveals.forEach(function (el) { io.observe(el); });
       } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
     })();
