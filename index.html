@@ -9,15 +9,15 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='60' height='40' fill='%2314244A'/><path d='M0,0 L60,40 M60,0 L0,40' stroke='%23fff' stroke-width='8'/><path d='M0,0 L60,40 M60,0 L0,40' stroke='%23C8102E' stroke-width='3'/><path d='M30,0 V40 M0,20 H60' stroke='%23fff' stroke-width='12'/><path d='M30,0 V40 M0,20 H60' stroke='%23C8102E' stroke-width='7'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Grenze+Gotisch:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cream: #F5F0E5;
       --cream-2: #EAE1CE;
       --ink: #1B1A17;
       --ink-soft: #565043;
-      --navy: #16264C;
-      --navy-deep: #0E1A35;
+      --navy: #2A2420;
+      --navy-deep: #181310;
       --red: #C0182C;
       --red-deep: #9C1122;
       --gold: #C79A3B;
@@ -34,7 +34,7 @@
     .label { font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: var(--gold-deep); }
 
     /* thin Union Jack tricolour bar at the very top */
-    .flagbar { height: 5px; background: linear-gradient(90deg, var(--red) 0 33.3%, #ffffff 33.3% 66.6%, var(--navy) 66.6% 100%); }
+    .flagbar { height: 5px; background: linear-gradient(90deg, var(--red), var(--gold), var(--red)); }
 
     .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; border-radius: 6px; font-weight: 600; font-size: 1rem; border: 2px solid transparent; cursor: pointer; transition: background 0.15s, color 0.15s, transform 0.1s; white-space: nowrap; }
     .btn:active { transform: translateY(1px); }
@@ -46,14 +46,14 @@
     .btn-outline:hover { background: var(--navy); color: var(--cream); }
 
     header.bar { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.5rem; max-width: 1060px; margin: 0 auto; }
-    .brand { display: flex; align-items: center; gap: 0.6rem; font-family: 'UnifrakturMaguntia', Georgia, serif; font-weight: 400; font-size: 1.7rem; color: var(--navy); }
+    .brand { display: flex; align-items: center; gap: 0.6rem; font-family: 'Grenze Gotisch', Georgia, serif; font-weight: 700; font-size: 1.9rem; color: var(--navy); }
     .brand svg { width: 30px; height: 20px; border: 1px solid var(--line); flex: none; }
 
     .hero { position: relative; overflow: hidden; background: radial-gradient(120% 110% at 88% -10%, rgba(199,154,59,0.22), transparent 55%), linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: var(--cream); text-align: center; padding: 5rem 1.5rem 5.5rem; }
     .hero .flag-ghost { position: absolute; right: -60px; top: -40px; width: 340px; height: 227px; opacity: 0.06; pointer-events: none; }
     .hero-inner { position: relative; }
     .hero .label { color: var(--gold); }
-    .hero h1.hero-name { font-family: 'UnifrakturMaguntia', Georgia, serif; font-weight: 400; font-size: clamp(2.9rem, 8.5vw, 5.2rem); line-height: 1.02; margin: 0.7rem auto 1.2rem; }
+    .hero h1.hero-name { font-family: 'Grenze Gotisch', Georgia, serif; font-weight: 700; font-size: clamp(3rem, 9vw, 5.6rem); line-height: 1.0; margin: 0.7rem auto 1.2rem; }
     .hero p.sub { font-size: clamp(1.05rem, 2.6vw, 1.25rem); color: rgba(245,240,229,0.85); max-width: 40rem; margin: 0 auto 2rem; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
     .hero .hours-line { margin-top: 1.7rem; font-size: 0.98rem; color: rgba(245,240,229,0.78); }
@@ -79,9 +79,9 @@
     .food .label { color: #f6dca0; }
     .food h2 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0.6rem 0 1rem; }
     .food p { color: rgba(245,240,229,0.9); font-size: 1.08rem; }
-    .food .card { background: var(--red-deep); border: 1px solid rgba(245,240,229,0.2); border-radius: var(--radius); padding: 1.8rem; }
-    .food .card .quote { font-family: 'Fraunces', serif; font-size: 1.28rem; line-height: 1.4; }
-    .food .card .who { margin-top: 0.9rem; color: #f6dca0; font-size: 0.88rem; font-weight: 600; }
+    .food .card { background: var(--cream); border: 1px solid rgba(0,0,0,0.10); border-radius: var(--radius); padding: 1.8rem; box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+    .food .card .quote { font-family: 'Fraunces', serif; font-size: 1.28rem; line-height: 1.4; color: var(--ink); }
+    .food .card .who { margin-top: 0.9rem; color: var(--red-deep); font-size: 0.88rem; font-weight: 600; }
     @media (max-width: 760px) { .food .wrap { grid-template-columns: 1fr; } }
 
     .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -99,7 +99,7 @@
     .cta-band p { font-size: 1.1rem; margin-bottom: 1.9rem; color: rgba(245,240,229,0.82); }
 
     footer.site { background: var(--navy-deep); color: var(--cream); text-align: center; padding: 3rem 1.5rem 2.5rem; }
-    footer .fb { font-family: 'UnifrakturMaguntia', Georgia, serif; font-weight: 400; font-size: 1.7rem; margin-bottom: 0.9rem; }
+    footer .fb { font-family: 'Grenze Gotisch', Georgia, serif; font-weight: 700; font-size: 1.95rem; margin-bottom: 0.9rem; }
     footer p { color: rgba(245,240,229,0.7); font-size: 0.93rem; margin: 0.25rem 0; }
     footer .credit { margin-top: 1.1rem; font-size: 0.78rem; color: rgba(245,240,229,0.4); }
   </style>
@@ -108,15 +108,11 @@
   <div class="flagbar"></div>
 
   <header class="bar">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#16264C"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C0182C" stroke-width="3"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C0182C" stroke-width="7"/></svg>
-      The Swingin' Door
-    </a>
+    <a class="brand" href="#top">The Swingin' Door</a>
     <a class="btn btn-red" style="padding:0.55rem 1.1rem; font-size:0.9rem;" href="tel:+16505229800">Call (650) 522-9800</a>
   </header>
 
   <section class="hero">
-    <svg class="flag-ghost" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#ffffff"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#16264C" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C0182C" stroke-width="3"/><path d="M30,0 V40 M0,20 H60" stroke="#16264C" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C0182C" stroke-width="7"/></svg>
     <div class="wrap hero-inner">
       <p class="label">A proper British pub · San Mateo</p>
       <h1 class="hero-name">The Swingin' Door</h1>
