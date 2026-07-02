@@ -1,4 +1,5 @@
 # Internal business docs — never deploy or publish.
 # Only index.html (the public preview) should ship.
 OUTREACH_EMAIL.md
+CLIENT_INTAKE.md
 .DS_Store
